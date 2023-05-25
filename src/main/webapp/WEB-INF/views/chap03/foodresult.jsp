@@ -7,15 +7,7 @@
     <title>Insert title here</title>
 </head>
 <body>
-
-<h1>${n}의 취미 목록</h1>
-<p>${hList}</p>
-<ol>
-    <!--java의 향상된 for문(for(var:list){})처럼 사용함 -->
-    <c:forEach var="h" items="${hList}">
-        <li>${h}입니다.</li>
-    </c:forEach>
-</ol>
-
+<h1>${Name}님의 주문 결과입니다.</h1>
+<h2>${orderNumber}번 테이블에 ${orderFoodName}을 가져다 드립니다.</h2>
 </body>
 </html>
