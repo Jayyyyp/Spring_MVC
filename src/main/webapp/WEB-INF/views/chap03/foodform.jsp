@@ -8,6 +8,7 @@
 </head>
 <body>
 <form action="http://localhost:8080/chap03/foodorder" method="POST">
+    <h1>${title}</h1>
     <h1>주문 목록</h1>
     고객명:<input type="text" name="Name"><br/>
     테이블번호:<input type="number" name="orderNumber"><br/>
