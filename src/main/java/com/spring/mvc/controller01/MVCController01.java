@@ -25,7 +25,7 @@ public class MVCController01 {
 
     // html의 get방식 요청만 허용하는 어노테이션
     @GetMapping("/getreq")// localhost:8080/getreq 접속 허용
-    // 스프링 3버전까지 쓰던 url매핑 방법                             배열로 나열시 2개이상 메서드 허용가능
+    // 스프링 3버전까지 쓰던 url매핑 방법                   배열로 나열시 2개이상 메서드 허용가능
     //@RequestMapping(value = "/getreq", method = {RequestMethod.GET})//,RequestMethod.POST})
     public String getReq(){
         System.out.println("get방식 요청을 감지했습니다!");
