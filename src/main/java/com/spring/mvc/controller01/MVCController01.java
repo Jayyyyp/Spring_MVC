@@ -13,7 +13,7 @@ public class MVCController01 {
         System.out.println("/hello 접속 감지!!!!!!");
         // 어떤 .jsp파일과 연동할지 return구문에 문자열로 파일이름을 적어줌
         // prefix였던 /WEB-INF/views와 suffix였던 .jsp를 앞뒤로 붙여서
-        // 최종적으로 열리는 파일은 /WEB-INF/views/hello.jsp
+        // 최종적으로 열리는 파일은 /WEB-INF/views/hello.jsp이다
         return "hello";
     }
 
