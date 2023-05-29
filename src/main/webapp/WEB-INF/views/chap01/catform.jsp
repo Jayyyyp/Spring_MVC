@@ -13,7 +13,7 @@
 <form action="http://localhost:8080/chap01/cat" method="POST">
     고양이 이름 : <input type="text" name="name"><br/>
     고양이 나이 : <input type="number" name="age"><br/>
-    고양이 품종 : <input type="kind" name="kind"><br/>
+    고양이 품종 : <input type="text" name="kind"><br/>
     <input type="submit" value="제출">
 </form>
 

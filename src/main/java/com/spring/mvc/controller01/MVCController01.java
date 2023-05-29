@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller // 해당 어노테이션이 있어야, 스프링 코어가 관리하는 컨트롤러가 됨.
+@RequestMapping("/chap01")
 public class MVCController01 {
 
     // 특정 주소로 접속했을때 처리할 로직을 작성합니다.
