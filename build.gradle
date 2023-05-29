@@ -26,8 +26,6 @@ dependencies {
 	// 스프링부트 3버전 이상에서는 javax로 시작하는 라이브러리 임포트가 불가능함
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
-
-
 }
 
 tasks.named('test') {
