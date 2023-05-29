@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/chap02")
 public class MVCController02 {
     // localhost:8080/chap02/hobbies
-    @RequestMapping("hobbies")
+    @RequestMapping("/hobbies")
     public String hobbies(Model model){ // .jsp로 자바 변수를 보내려면 Model을 선언부에 선언한다.
         String name = "룰루";
 

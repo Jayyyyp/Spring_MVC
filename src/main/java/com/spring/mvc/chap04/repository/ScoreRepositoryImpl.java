@@ -2,6 +2,7 @@ package com.spring.mvc.chap04.repository;
 
 import com.spring.mvc.chap04.entity.Score;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,16 +25,30 @@ public class ScoreRepositoryImpl implements ScoreRepository{
         scoreMap.put(stu1.getStudentNumber(), stu1);
         scoreMap.put(stu2.getStudentNumber(), stu2);
         scoreMap.put(stu3.getStudentNumber(), stu3);
-        System.out.println(scoreMap);
+//        System.out.println(scoreMap);
     }
     @Override
     public List<Score> findAll() {
-        return null;
+        // score.Map.values() // 이해 안가면 sout 내부에 넣고 체크
+
+        // 빈 ArrayList 생성
+        List<Score> resultList = new ArrayList<Score>();
+        // 반복문을 이용해 resultList에 Score 객체 채워넣기
+        for(Score score : scoreMap.values()){
+            resultList.add(score);
+        }
+//        System.out.println(resultList);
+        return resultList;
     }
 
     @Override
     public boolean save(Score score) {
-        return false;
+        if(scoreMap.containsKey(score.getStudentNumber())){
+            return false; // 이미 존재하는 학번이면 false 리턴
+        }
+        score.setStudentNumber(++sequence); // 사용된 적 없는 학번 정보를 setter로 추가
+        scoreMap.put(score.getStudentNumber(), score);
+        return true;
     }
 
     @Override
@@ -43,6 +58,9 @@ public class ScoreRepositoryImpl implements ScoreRepository{
 
     @Override
     public Score findByStudentNumber(int studentNumber) {
-        return null;
+
+        return scoreMap.get(studentNumber);
     }
+
+
 }

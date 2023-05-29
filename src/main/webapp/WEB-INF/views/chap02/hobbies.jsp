@@ -13,7 +13,7 @@
 <ol>
     <!--java의 향상된 for문(for(var:list){})처럼 사용함 -->
     <c:forEach var="h" items="${hList}">
-        <li>${h}입니다.</li>
+        <li>${h}입니다요.</li>
     </c:forEach>
 </ol>
 

@@ -48,6 +48,7 @@ public class MVCController03 {
         // WEB-INF/views/chap03/foodform.jsp라는 목적 파일로 포워딩
         return "/chap03/foodform"; // 목적 파일인 foodform.jsp로 적재 데이터도 보내는 포워딩 방식
     }
+
     // 리다이렉트는 데이터 전달이 불가능할까?
     // GET 방식은 url에 쿼리스트링을 붙여서 데이터를 전송하기 때문에
     // 리다이렉트 타켓 URL에 쿼리 스트링을 붙여 리다이렉트를 수행하면 전달 가능하다.
