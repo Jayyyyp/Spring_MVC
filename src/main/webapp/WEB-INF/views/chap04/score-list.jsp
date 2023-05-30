@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <h1>전체 학생 성적 목록</h1>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -31,13 +32,27 @@
                         <td>${score.korScore}</td>
                         <td>${score.mathScore}</td>
                         <td>${score.engScore}</td>
-                        <td>${score.total}</td>
-                        <td>${score.average}</td>
+                        <td>${score.korScore + score.mathScore + score.engScore}</td>
+                        <td>${(score.korScore + score.mathScore + score.engScore) / 3}</td>
                     </tr>
                 </c:forEach>
             </tr>
         </tbody>
-      </table>
-    </div>
+      </table><!-- 성적 table 종료지점-->
+      <h1>성적등록 폼</h1>
+        <!-- /score/register <- 제일 앞 /의 의미 : 기본 서버 주소(http://localhost:8080/)
+            위와 같이 적을 경우 인식주소 : http://localhost:8080/score/register -->
+      <form action="/score/register" method="POST">
+            <label for="user_name" class="form-label">유저이름</label>
+            <input type="text" class="form-control" id="user_name" name="name">
+            <label for="user_kor" class="form-label">국어성적</label>
+            <input type="text" class="form-control" id="user_kor" name="korScore" min="0">
+            <label for="user_math" class="form-label">수학성적</label>
+            <input type="text" class="form-control" id="user_math" name="mathScore" min="0">
+            <label for="user_eng" class="form-label">영어성적</label>
+            <input type="text" class="form-control" id="user_eng" name="engScore" min="0">
+            <input type="submit" value="제출하기">
+      </form>
+    </div><!-- .container-->
 </body>
 </html>

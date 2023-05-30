@@ -52,23 +52,33 @@ public class ScoreController {
 
     // 2. 성적 정보 등록 처리 요청
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(){
+    public String register(Score score){
         System.out.println("/score/register : POST방식");
-        return "";
+        // 추가하는 로직 작성
+        System.out.println(score);
+        repository.save(score);
+        // 추가 성공했으면 다시 목록페이지로 이동시키기
+        return "redirect:/score/list";
     }
 
     // 3. 성적정보 삭제 요청
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
     public String remove(){
         System.out.println("/score/remove : POST방식");
+
         return "";
     }
 
     // 4. 성적정보 상세 요청
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detail(){
+    public String detail(Model model, int studentNumber){
         System.out.println("/score/detail : GET방식");
-        return "";
+        // 레포지토리에서 Score객체를 받아 저장하고 .jsp 파일로 보낼 수 있게 적재하기
+        Score score = repository.findByStudentNumber(studentNumber);
+        System.out.println("위 번호로 가져온 학생 정보 : " + score);
+        model.addAttribute("score", score);
+        // WEB-INF/views/chap04/detail.jsp
+        return "chap04/detail";
     }
 
 }
