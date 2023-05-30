@@ -1,8 +1,14 @@
 package com.spring.mvc.chap04.controller;
 
+import com.spring.mvc.chap04.entity.Score;
+import com.spring.mvc.chap04.repository.ScoreRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /*
     학생의 성적정보를 조회하고
@@ -21,13 +27,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/score")
+// @AllArgsConstructor // 모든 필드를 초기화해주는 롬복 생성자 어노테이션
+@RequiredArgsConstructor // final필드에 대해서 초기화하는 생성자
+
 public class ScoreController {
+
+    // repository 기능을 이용해 데이터를 가져와야 화면에 요청 데이터를 양식에 맞춰 전달할 수 있음
+    // @Autowired
+     private final ScoreRepository repository;
+    // 스프링 4.0 이후로 생성자가 하나인 경우에는 어노테이션을 자동으로 달아줌
 
     // 1. 성적등록화면 띄우기 + 정보목록조회
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(){
+    public String list(Model model){
         System.out.println("/score/list : GET방식");
-        return "";
+
+        // repository 객체 내부의 전체 글 조회기능을 이용해 자료를 받아서 scoreList 변수에 저장하기
+        List<Score> scoreList = repository.findAll();
+        // 해당 성적 전체를 실어서 화면단으로 보낼 수 있게 적재하기
+        model.addAttribute("scoreList", scoreList);
+        // /WEB-INF/views/chap04/score-list.jsp
+        return "chap04/score-list";
     }
 
     // 2. 성적 정보 등록 처리 요청

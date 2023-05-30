@@ -1,6 +1,9 @@
 package com.spring.mvc.chap04.repository;
 
 import com.spring.mvc.chap04.entity.Score;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +14,7 @@ import java.util.List;
     3. 성적 삭제
     4. 성적 등록
 */
+
 public interface ScoreRepository {
     // 전체 성적은 어떻게 받아올 것인가?
     // entity에 score라는 정보가 어떻게 구성되는지 먼저 정의하고
