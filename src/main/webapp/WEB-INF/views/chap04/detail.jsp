@@ -27,22 +27,26 @@
         <tr>
             <td>${score.studentNumber}</td>
             <td>${score.name}</td>
-            <td>${score.korScore}</td>
-            <td>${score.mathScore}</td>
-            <td>${score.engScore}</td>
-            <td>${score.korScore + score.mathScore + score.engScore}</td>
-            <td>${(score.korScore + score.mathScore + score.engScore) / 3}</td>
+            <td>${score.korScore}점</td>
+            <td>${score.mathScore}점</td>
+            <td>${score.engScore}점</td>
+            <td>${score.korScore + score.mathScore + score.engScore}점</td>
+            <td>${(score.korScore + score.mathScore + score.engScore) / 3}점</td>
         </tr>
 
 
         </tbody>
     </table><!-- 성적 table 종료지점-->
 
-    <form action="/score/list" method="GET">
+    <!--<form action="/score/list" method="GET"> 
         <input type="submit" value="목록">
-    </form>
+    </form> POST방식일때 사용, 목록으로 넘어가는 간단 코딩이기 때문에 굳이 길게 쓸 필요 X -->
+    <a href="/score/list" class="btn btn-primary">목록으로 돌아가기</a> 
+    <!--단순페이지 이동에는 a태그 사용하기-->
+
     <form action="/score/remove" method="POST">
-    <input type="submit" value="삭제">
+    <input type="hidden" name="studentNumber" value="${score.studentNumber}">
+    <input type="submit" class = "btn btn-primary" value="삭제">
 </form>
 </div><!-- .container-->
 </body>
